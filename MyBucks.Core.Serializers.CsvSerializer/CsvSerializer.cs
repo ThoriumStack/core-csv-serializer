@@ -5,6 +5,7 @@ using MyBucks.Core.DataIntegration.Attributes;
 using MyBucks.Core.DataIntegration.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 
@@ -69,7 +70,10 @@ namespace MyBucks.Core.Serializers.CsvSerializer
         private void CsvConfigure<TData>(Configuration configuration)
         {
             configuration.HasHeaderRecord = HasHeaderRecord;
-            configuration.Delimiter = Delimiter;
+            if (Delimiter != null)
+            {
+                configuration.Delimiter = Delimiter;
+            }
             //configuration.conf = IgnoreHeaderWhiteSpace;
 
             configuration.TrimOptions = TrimOptions.Trim;
@@ -156,6 +160,15 @@ namespace MyBucks.Core.Serializers.CsvSerializer
                     };
                     prop.Data.TypeConverter = converter;       
                     //prop.TypeConverter(converter);
+                }
+
+                var descriptionAttribs = prop.Data.Member.GetCustomAttributes(typeof(ColumnHeaderAttribute), true);
+                if (descriptionAttribs.Any())
+                {
+                    //map.Map(typeof(TData),prop.Data.Member,true).
+                    prop.Data.Names.Clear();
+                    prop.Data.Names.Add(((ColumnHeaderAttribute)descriptionAttribs.First()).Name);
+                    
                 }
 
                 var decFormat = prop.Data.Member.GetCustomAttributes(typeof(DecimalFormatAttribute), true);

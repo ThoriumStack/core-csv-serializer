@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="4.0.3" />
-    <PackageReference Include="MyBucks.Core.DataIntegration" Version="1.0.8" />
+    <PackageReference Include="MyBucks.Core.DataIntegration" Version="1.0.9" />
   </ItemGroup>
 
 </Project>
