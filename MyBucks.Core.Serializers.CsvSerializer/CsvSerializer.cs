@@ -32,7 +32,7 @@ namespace MyBucks.Core.Serializers.CsvSerializer
         //
         // Summary:
         //     Gets or sets a method that gets called when bad data is detected.
-        public Action<IReadingContext> BadDataCallback { get; set; }
+        public Action<ReadingContext> BadDataCallback { get; set; }
         public CsvSerializer()
         {
 
