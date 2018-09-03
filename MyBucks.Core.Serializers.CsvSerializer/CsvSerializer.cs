@@ -26,7 +26,7 @@ namespace MyBucks.Core.Serializers.CsvSerializer
         public bool TrimHeaders { get; set; }
         public bool IgnoreQuotes { get; set; }
         public bool QuoteNoFields { get; set; } = false;
-        public TrimOptions TrimpOptions { get; set; }
+        public TrimOptions TrimOptions { get; set; }
         // Summary:
         //     Gets or sets the callback that is called when a reading exception occurs. This
         //     will only happen when CsvHelper.Configuration.CsvConfiguration.IgnoreReadingExceptions
@@ -80,7 +80,7 @@ namespace MyBucks.Core.Serializers.CsvSerializer
             }
             //configuration.conf = IgnoreHeaderWhiteSpace;
 
-            configuration.TrimOptions = TrimpOptions;
+            configuration.TrimOptions = TrimOptions;
 
             if (TrimHeaders)
             {
