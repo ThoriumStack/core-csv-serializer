@@ -6,6 +6,7 @@ using MyBucks.Core.DataIntegration.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -27,6 +28,7 @@ namespace MyBucks.Core.Serializers.CsvSerializer
         public bool IgnoreQuotes { get; set; }
         public bool QuoteNoFields { get; set; } = false;
         public TrimOptions TrimOptions { get; set; }
+        public CultureInfo cultureInfo { get; set; } = CultureInfo.InvariantCulture;
         // Summary:
         //     Gets or sets the callback that is called when a reading exception occurs. This
         //     will only happen when CsvHelper.Configuration.CsvConfiguration.IgnoreReadingExceptions
@@ -90,6 +92,7 @@ namespace MyBucks.Core.Serializers.CsvSerializer
             configuration.ReadingExceptionOccurred = ReadingExceptionCallback;
             configuration.BadDataFound = BadDataCallback;
             configuration.IgnoreQuotes = IgnoreQuotes;
+            configuration.CultureInfo = cultureInfo;
             RegisterMap<TData>((Configuration)configuration);
         }
 
