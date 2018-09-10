@@ -29,6 +29,8 @@ namespace MyBucks.Core.Serializers.CsvSerializer
         public bool QuoteNoFields { get; set; } = false;
         public TrimOptions TrimOptions { get; set; }
         public CultureInfo cultureInfo { get; set; } = CultureInfo.InvariantCulture;
+        public Action<string[], int, ReadingContext> MissingFieldFound { get; set; } = null;
+
         // Summary:
         //     Gets or sets the callback that is called when a reading exception occurs. This
         //     will only happen when CsvHelper.Configuration.CsvConfiguration.IgnoreReadingExceptions
@@ -93,6 +95,7 @@ namespace MyBucks.Core.Serializers.CsvSerializer
             configuration.BadDataFound = BadDataCallback;
             configuration.IgnoreQuotes = IgnoreQuotes;
             configuration.CultureInfo = cultureInfo;
+            configuration.MissingFieldFound = MissingFieldFound;
             RegisterMap<TData>((Configuration)configuration);
         }
 
