@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Thorium.Core.DataIntegration.Attributes;
+using Thorium.Core.Serializers.CsvSerializer;
 using Xunit;
 
 namespace Tests
