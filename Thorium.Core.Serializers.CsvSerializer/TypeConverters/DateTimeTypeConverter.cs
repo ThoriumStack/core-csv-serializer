@@ -4,43 +4,31 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
 
-namespace Atlas.Modules.DataIntegration.Service.TypeConverters
+namespace Thorium.Core.Serializers.CsvSerializer.TypeConverters
 {
-    public class DecimalTypeConverter : ITypeConverter
+    public class DateTimeTypeConverter : ITypeConverter
     {
 
-        public string DecimalFormat { get; set; }
-
+        public string DateTimeFormat { get; set; }
 
         public string ConvertToString(object value, IWriterRow row, MemberMapData memberMapData)
         {
-            try
+            if (value == null)
             {
-                if ((value == null) || (value.GetType() != typeof(Decimal)))
-                {
-                    return string.Empty;
-                }
-
-                var returnFormatted = ((Decimal)value).ToString(DecimalFormat);
-                return string.IsNullOrEmpty(returnFormatted) ? value.ToString() : returnFormatted;
+                return string.Empty;
             }
-            catch (Exception ex)
-            {
-                return "0";
-            }
+            return ((DateTime)value).ToString(DateTimeFormat);
         }
 
         public object ConvertFromString(string text, IReaderRow row, MemberMapData memberMapData)
         {
-            decimal outValue = 0;
             try
             {
-                Decimal.TryParse(text, out outValue);
-                return outValue;
+                return DateTime.ParseExact(text, DateTimeFormat, CultureInfo.InvariantCulture);
             }
             catch (Exception)
             {
-                return outValue;
+                return new DateTime();
             }
         }
 
@@ -50,7 +38,7 @@ namespace Atlas.Modules.DataIntegration.Service.TypeConverters
             {
                 return true;
             }
-            if (type == typeof(Decimal))
+            if (type == typeof(DateTime))
             {
                 return true;
             }
@@ -63,13 +51,11 @@ namespace Atlas.Modules.DataIntegration.Service.TypeConverters
             {
                 return true;
             }
-            if (type == typeof(Decimal))
+            if (type == typeof(DateTime))
             {
                 return true;
             }
             return false;
         }
-
-
     }
 }

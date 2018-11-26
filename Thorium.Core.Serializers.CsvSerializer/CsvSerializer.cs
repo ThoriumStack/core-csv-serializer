@@ -1,16 +1,15 @@
-﻿using Atlas.Modules.DataIntegration.Service.TypeConverters;
-using CsvHelper;
-using CsvHelper.Configuration;
-using MyBucks.Core.DataIntegration.Attributes;
-using MyBucks.Core.DataIntegration.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using CsvHelper;
+using CsvHelper.Configuration;
+using Thorium.Core.DataIntegration.Attributes;
+using Thorium.Core.DataIntegration.Interfaces;
+using Thorium.Core.Serializers.CsvSerializer.TypeConverters;
 
-namespace MyBucks.Core.Serializers.CsvSerializer
+namespace Thorium.Core.Serializers.CsvSerializer
 {
     public class CsvSerializer : IIntegrationDataSerializer
     {

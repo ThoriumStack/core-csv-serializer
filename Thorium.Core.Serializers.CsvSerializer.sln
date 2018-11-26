@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyBucks.Core.Serializers.CsvSerializer", "MyBucks.Core.Serializers.CsvSerializer\MyBucks.Core.Serializers.CsvSerializer.csproj", "{DCF442B8-6293-46B3-8FD8-30E9252DC433}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thorium.Core.Serializers.CsvSerializer", "Thorium.Core.Serializers.CsvSerializer\Thorium.Core.Serializers.CsvSerializer.csproj", "{DCF442B8-6293-46B3-8FD8-30E9252DC433}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6E4E6964-AAF6-412E-B6E3-CCCC9D3D9DC1}"
 EndProject

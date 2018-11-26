@@ -1,34 +1,45 @@
 ﻿using System;
-using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
 
-namespace Atlas.Modules.DataIntegration.Service.TypeConverters
+namespace Thorium.Core.Serializers.CsvSerializer.TypeConverters
 {
-    public class DateTimeTypeConverter : ITypeConverter
+    public class DecimalTypeConverter : ITypeConverter
     {
 
-        public string DateTimeFormat { get; set; }
+        public string DecimalFormat { get; set; }
+
 
         public string ConvertToString(object value, IWriterRow row, MemberMapData memberMapData)
         {
-            if (value == null)
+            try
             {
-                return string.Empty;
+                if ((value == null) || (value.GetType() != typeof(Decimal)))
+                {
+                    return string.Empty;
+                }
+
+                var returnFormatted = ((Decimal)value).ToString(DecimalFormat);
+                return string.IsNullOrEmpty(returnFormatted) ? value.ToString() : returnFormatted;
             }
-            return ((DateTime)value).ToString(DateTimeFormat);
+            catch (Exception ex)
+            {
+                return "0";
+            }
         }
 
         public object ConvertFromString(string text, IReaderRow row, MemberMapData memberMapData)
         {
+            decimal outValue = 0;
             try
             {
-                return DateTime.ParseExact(text, DateTimeFormat, CultureInfo.InvariantCulture);
+                Decimal.TryParse(text, out outValue);
+                return outValue;
             }
             catch (Exception)
             {
-                return new DateTime();
+                return outValue;
             }
         }
 
@@ -38,7 +49,7 @@ namespace Atlas.Modules.DataIntegration.Service.TypeConverters
             {
                 return true;
             }
-            if (type == typeof(DateTime))
+            if (type == typeof(Decimal))
             {
                 return true;
             }
@@ -51,11 +62,13 @@ namespace Atlas.Modules.DataIntegration.Service.TypeConverters
             {
                 return true;
             }
-            if (type == typeof(DateTime))
+            if (type == typeof(Decimal))
             {
                 return true;
             }
             return false;
         }
+
+
     }
 }

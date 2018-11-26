@@ -1,6 +1,4 @@
 
-using MyBucks.Core.DataIntegration.Attributes;
-using MyBucks.Core.Serializers.CsvSerializer;
 using System;
 using System.Collections.Generic;
 using System.IO;
