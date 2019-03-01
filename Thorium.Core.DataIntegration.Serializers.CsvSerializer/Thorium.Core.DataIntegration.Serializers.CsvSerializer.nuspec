@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <version>$(appveyor_build_version)</version>
+        <id>Thorium.Core.DataIntegration.Serializers.CsvSerializer</id>
+        <authors>Thorium Dev Team</authors>
+        <owners>Thorium Dev Team</owners>
+        <projectUrl>https://github.com/ThoriumStack/core-csv-serializer</projectUrl>
+        <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Csv Serializer for the data integration library</description>
+        <releaseNotes>Initial release.</releaseNotes>
+        <copyright>Copyright 2019</copyright>
+        <tags>csv</tags>
+    </metadata>
+</package>

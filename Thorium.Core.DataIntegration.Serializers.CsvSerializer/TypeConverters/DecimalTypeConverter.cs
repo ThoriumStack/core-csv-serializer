@@ -3,7 +3,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
 
-namespace Thorium.Core.Serializers.CsvSerializer.TypeConverters
+namespace Thorium.Core.DataIntegration.Serializers.CsvSerializer.TypeConverters
 {
     public class DecimalTypeConverter : ITypeConverter
     {

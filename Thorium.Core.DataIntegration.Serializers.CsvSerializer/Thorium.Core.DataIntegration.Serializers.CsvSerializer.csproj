@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Version>$(appveyor_build_version)</Version>
+    <Authors>Thorium Dev Team</Authors>
+    <Company>Thorium Dev Team</Company>
+    <Product>Serializer for use with Thorium Data Integration Lib</Product>
+    <PackageId>Thorium.Core.DataIntegration.Serializers.CsvSerializer</PackageId>
+    <AssemblyVersion>$(appveyor_build_version)</AssemblyVersion>
+    <FileVersion>$(appveyor_build_version)</FileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Description>Fluent Defensive Programming</Description>
+    <Copyright>Copyright</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/ThoriumStack/core-csv-serializer/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/ThoriumStack/core-csv-serializer</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ThoriumStack/core-csv-serializer</RepositoryUrl>
+    <PackageTags>csv</PackageTags>
+    <PackageReleaseNotes>Release</PackageReleaseNotes>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="7.1.1" />
+    <PackageReference Include="Thorium.Core.DataIntegration" Version="1.0.11" />
+  </ItemGroup>
+
+</Project>

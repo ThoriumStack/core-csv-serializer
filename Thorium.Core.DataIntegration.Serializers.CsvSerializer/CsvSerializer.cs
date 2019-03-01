@@ -7,9 +7,9 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using Thorium.Core.DataIntegration.Attributes;
 using Thorium.Core.DataIntegration.Interfaces;
-using Thorium.Core.Serializers.CsvSerializer.TypeConverters;
+using Thorium.Core.DataIntegration.Serializers.CsvSerializer.TypeConverters;
 
-namespace Thorium.Core.Serializers.CsvSerializer
+namespace Thorium.Core.DataIntegration.Serializers.CsvSerializer
 {
     public class CsvSerializer : IIntegrationDataSerializer
     {
